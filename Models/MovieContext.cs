@@ -19,6 +19,9 @@ namespace Mission4.Models
          }
         public DbSet<MovieModel> Movies { get; set; }
 
+
+        // Setting up a seeded database
+
         protected override void OnModelCreating(ModelBuilder mb)
         {
             mb.Entity<MovieModel>().HasData(

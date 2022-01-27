@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
+// Model for the movies, including all of the data types that will need to be put into the database. 
 namespace Mission4.Models
 {
     public class MovieModel
