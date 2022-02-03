@@ -1206,7 +1206,7 @@
       "outputPath": "/Users/benja/Projects/Mission4/Mission4/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/Users/benja/.nuget/NuGet/NuGet.Config"
+        "/Users/benja/.config/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp3.1"

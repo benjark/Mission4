@@ -1,0 +1,38 @@
+﻿
+@{
+    ViewData["Title"] = "Wait List";
+}
+
+@model List<MovieModel>
+
+<table class="table table-bordered table-striped">
+    <thead class="font-weight-bold">
+        <tr>
+            <td>Title</td>
+            <td>Category</td>
+            <td>Director</td>
+            <td>Rating</td>
+            <td>Year</td>
+            <td>Edited</td>
+            <td>LentTo</td>
+            <td>Notes</td>
+    </thead>
+
+
+    <tbody>
+        @foreach (var m in Model)
+        {
+            <tr>
+                <td>@m.Title</td>
+                <td>@m.Category</td>
+                <td>@m.Director</td>
+                <td>@m.Rating</td>
+                <td>@m.Year</td>
+                <td>@m.Edited</td>
+                <td>@m.LentTo</td>
+                <td>@m.Notes</td>
+            </tr>
+        }
+    </tbody>
+
+</table>

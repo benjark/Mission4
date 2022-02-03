@@ -11,11 +11,11 @@ namespace Mission4.Controllers
 {
     public class HomeController : Controller
     {
-        private MovieContext context { get; set; }
+        private MovieContext daContext { get; set; }
 
         public HomeController(MovieContext temp)
         {
-            context = temp;
+            daContext = temp;
         }
 
         [HttpGet]
@@ -28,8 +28,8 @@ namespace Mission4.Controllers
         [HttpPost]
         public IActionResult Index(MovieModel sq)
         {
-            context.Add(sq);
-            context.SaveChanges();
+            daContext.Add(sq);
+            daContext.SaveChanges();
 
             return View();
         }
@@ -49,9 +49,27 @@ namespace Mission4.Controllers
         [HttpPost]
         public IActionResult AddMovie(MovieModel sq)
         {
-            context.Add(sq);
-            context.SaveChanges();
+            daContext.Add(sq);
+            daContext.SaveChanges();
 
+            return View();
+        }
+
+
+        [HttpGet]
+        public IActionResult MovieList (MovieModel sq)
+        {
+            var movies = daContext.Movies
+                //.Where(blah => blah.LentTo == false)
+                .OrderBy(m => m.Title)
+                .ToList();
+
+            return View(movies);
+            
+        }
+
+        public IActionResult EditMovie (int movieid)
+        {
             return View();
         }
     }

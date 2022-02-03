@@ -17,9 +17,6 @@ namespace Mission4.Models
         public string Title { get; set; }
 
         [Required]
-        public string Category { get; set; }
-
-        [Required]
         public string Director { get; set; }
 
         [Required]
@@ -34,5 +31,10 @@ namespace Mission4.Models
 
         [MaxLength(25)]
         public string Notes { get; set; }
+
+        //Build Foreign Key Relationship
+        
+        public int CategoryID { get; set; }
+        public Category Category { get; set; }
     }
 }

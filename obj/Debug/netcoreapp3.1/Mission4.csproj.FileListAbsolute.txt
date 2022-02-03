@@ -75,3 +75,4 @@
 /Users/benja/Projects/Mission4/Mission4/obj/Debug/netcoreapp3.1/Mission4.genruntimeconfig.cache
 /Users/benja/Projects/Mission4/Mission4/obj/Debug/netcoreapp3.1/Razor/Views/Home/Podcasts.cshtml.g.cs
 /Users/benja/Projects/Mission4/Mission4/obj/Debug/netcoreapp3.1/Razor/Views/Home/AddMovie.cshtml.g.cs
+/Users/benja/Projects/Mission4/Mission4/obj/Debug/netcoreapp3.1/Razor/Views/Home/MovieList.cshtml.g.cs

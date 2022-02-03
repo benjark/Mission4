@@ -12,23 +12,32 @@ namespace Mission4.Models
     public class MovieContext : DbContext
     {
         // Set up standard options
-        public MovieContext (DbContextOptions<MovieContext> options) : base (options)
+        public MovieContext(DbContextOptions<MovieContext> options) : base(options)
 
-        { 
-             
-         }
+        {
+            //leaving blank for now
+        }
         public DbSet<MovieModel> Movies { get; set; }
+        public DbSet<Category> Categories{get;set;}
 
 
         // Setting up a seeded database
 
         protected override void OnModelCreating(ModelBuilder mb)
         {
+
+            mb.Entity<Category>().HasData(
+                new Category { CategoryID =1, CategoryName ="Action"},
+                new Category { CategoryID = 2, CategoryName = "Romance" },
+                new Category { CategoryID = 3, CategoryName = "Thriller" },
+                new Category { CategoryID = 4, CategoryName = "Historical" }
+                );
             mb.Entity<MovieModel>().HasData(
+
                 new MovieModel
                 {
                     Title = "Revenge of the Sith",
-                    Category = "Action",
+                    CategoryID = 1,
                     Director = "George Lucas",
                     Rating = "PG-13",
                     Year = "2005",
@@ -39,7 +48,7 @@ namespace Mission4.Models
                 new MovieModel
                 {
                     Title = "Bourne Ultimatum",
-                    Category = "Action",
+                    CategoryID = 1,
                     Director = "Paul Greengrass",
                     Rating = "PG-13",
                     Year = "2007",
@@ -48,7 +57,7 @@ namespace Mission4.Models
                 new MovieModel
                 {
                     Title = "Endgame",
-                    Category = "Action",
+                    CategoryID = 1,
                     Director = "Joe and Anthony Russo",
                     Rating = "PG-13",
                     Year = "2018",

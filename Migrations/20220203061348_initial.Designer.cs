@@ -8,8 +8,8 @@ using Mission4.Models;
 namespace Mission4.Migrations
 {
     [DbContext(typeof(MovieContext))]
-    [Migration("20220127061900_second")]
-    partial class second
+    [Migration("20220203061348_initial")]
+    partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -17,14 +17,49 @@ namespace Mission4.Migrations
             modelBuilder
                 .HasAnnotation("ProductVersion", "3.1.22");
 
+            modelBuilder.Entity("Mission4.Models.Category", b =>
+                {
+                    b.Property<int>("CategoryID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("CategoryName")
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("CategoryID");
+
+                    b.ToTable("Categories");
+
+                    b.HasData(
+                        new
+                        {
+                            CategoryID = 1,
+                            CategoryName = "Action"
+                        },
+                        new
+                        {
+                            CategoryID = 2,
+                            CategoryName = "Romance"
+                        },
+                        new
+                        {
+                            CategoryID = 3,
+                            CategoryName = "Thriller"
+                        },
+                        new
+                        {
+                            CategoryID = 4,
+                            CategoryName = "Historical"
+                        });
+                });
+
             modelBuilder.Entity("Mission4.Models.MovieModel", b =>
                 {
                     b.Property<string>("Title")
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("Category")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
+                    b.Property<int>("CategoryID")
+                        .HasColumnType("INTEGER");
 
                     b.Property<string>("Director")
                         .IsRequired()
@@ -50,13 +85,15 @@ namespace Mission4.Migrations
 
                     b.HasKey("Title");
 
+                    b.HasIndex("CategoryID");
+
                     b.ToTable("Movies");
 
                     b.HasData(
                         new
                         {
                             Title = "Revenge of the Sith",
-                            Category = "Action",
+                            CategoryID = 1,
                             Director = "George Lucas",
                             Edited = false,
                             Rating = "PG-13",
@@ -65,7 +102,7 @@ namespace Mission4.Migrations
                         new
                         {
                             Title = "Bourne Ultimatum",
-                            Category = "Action",
+                            CategoryID = 1,
                             Director = "Paul Greengrass",
                             Edited = false,
                             Rating = "PG-13",
@@ -74,12 +111,21 @@ namespace Mission4.Migrations
                         new
                         {
                             Title = "Endgame",
-                            Category = "Action",
-                            Director = "",
+                            CategoryID = 1,
+                            Director = "Joe and Anthony Russo",
                             Edited = false,
                             Rating = "PG-13",
                             Year = "2018"
                         });
+                });
+
+            modelBuilder.Entity("Mission4.Models.MovieModel", b =>
+                {
+                    b.HasOne("Mission4.Models.Category", "Category")
+                        .WithMany()
+                        .HasForeignKey("CategoryID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }
