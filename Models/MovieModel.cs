@@ -14,6 +14,8 @@ namespace Mission4.Models
     {
         [Key]
         [Required]
+        public int MovieID { get; set; }
+
         public string Title { get; set; }
 
         [Required]

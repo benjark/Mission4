@@ -18,7 +18,7 @@ namespace Mission4.Models
             //leaving blank for now
         }
         public DbSet<MovieModel> Movies { get; set; }
-        public DbSet<Category> Categories{get;set;}
+        public DbSet<Category> Categorys{get;set;}
 
 
         // Setting up a seeded database
@@ -26,8 +26,10 @@ namespace Mission4.Models
         protected override void OnModelCreating(ModelBuilder mb)
         {
 
+         
+
             mb.Entity<Category>().HasData(
-                new Category { CategoryID =1, CategoryName ="Action"},
+                new Category { CategoryID = 1, CategoryName ="Action"},
                 new Category { CategoryID = 2, CategoryName = "Romance" },
                 new Category { CategoryID = 3, CategoryName = "Thriller" },
                 new Category { CategoryID = 4, CategoryName = "Historical" }
@@ -36,6 +38,7 @@ namespace Mission4.Models
 
                 new MovieModel
                 {
+                    MovieID = 1,
                     Title = "Revenge of the Sith",
                     CategoryID = 1,
                     Director = "George Lucas",
@@ -47,6 +50,7 @@ namespace Mission4.Models
                 },
                 new MovieModel
                 {
+                    MovieID = 2,
                     Title = "Bourne Ultimatum",
                     CategoryID = 1,
                     Director = "Paul Greengrass",
@@ -56,6 +60,7 @@ namespace Mission4.Models
                 },
                 new MovieModel
                 {
+                    MovieID = 3,
                     Title = "Endgame",
                     CategoryID = 1,
                     Director = "Joe and Anthony Russo",

@@ -26,7 +26,7 @@ namespace Mission4.Migrations
 
                     b.HasKey("CategoryID");
 
-                    b.ToTable("Categories");
+                    b.ToTable("Categorys");
 
                     b.HasData(
                         new
@@ -53,8 +53,9 @@ namespace Mission4.Migrations
 
             modelBuilder.Entity("Mission4.Models.MovieModel", b =>
                 {
-                    b.Property<string>("Title")
-                        .HasColumnType("TEXT");
+                    b.Property<int>("MovieID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
 
                     b.Property<int>("CategoryID")
                         .HasColumnType("INTEGER");
@@ -77,11 +78,14 @@ namespace Mission4.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
+                    b.Property<string>("Title")
+                        .HasColumnType("TEXT");
+
                     b.Property<string>("Year")
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.HasKey("Title");
+                    b.HasKey("MovieID");
 
                     b.HasIndex("CategoryID");
 
@@ -90,29 +94,32 @@ namespace Mission4.Migrations
                     b.HasData(
                         new
                         {
-                            Title = "Revenge of the Sith",
+                            MovieID = 1,
                             CategoryID = 1,
                             Director = "George Lucas",
                             Edited = false,
                             Rating = "PG-13",
+                            Title = "Revenge of the Sith",
                             Year = "2005"
                         },
                         new
                         {
-                            Title = "Bourne Ultimatum",
+                            MovieID = 2,
                             CategoryID = 1,
                             Director = "Paul Greengrass",
                             Edited = false,
                             Rating = "PG-13",
+                            Title = "Bourne Ultimatum",
                             Year = "2007"
                         },
                         new
                         {
-                            Title = "Endgame",
+                            MovieID = 3,
                             CategoryID = 1,
                             Director = "Joe and Anthony Russo",
                             Edited = false,
                             Rating = "PG-13",
+                            Title = "Endgame",
                             Year = "2018"
                         });
                 });
