@@ -77,11 +77,11 @@ namespace Mission4.Controllers
         {
             ViewBag.Categorys = daContext.Categorys.ToList();
             var movie = daContext.Movies.Single(m => m.MovieID == movieid);
-            return View("MovieList", movie);
+            return View("AddMovie", movie);
         }
 
         [HttpPost]
-        public IActionResult Edit(MovieContext mc)
+        public IActionResult Edit(MovieModel mc)
         {
             ViewBag.Categorys = daContext.Categorys.ToList();
             daContext.Update(mc);

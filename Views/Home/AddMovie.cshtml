@@ -5,7 +5,7 @@
 <br />
 @* Form for the database entry *@
 <div>
-    <form>
+    <form method="post">
         <label asp-for="Title">Title</label>
         <input asp-for="Title" />
         <br />
@@ -41,6 +41,8 @@
         <br />
         <label asp-for="Notes">Notes </label>
         <input asp-for="Notes" />
+
+        <input asp-for="MovieID" type="hidden" />
 
         <br />
         <button type="submit">Submit Movie</button>
